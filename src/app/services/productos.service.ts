@@ -4,20 +4,21 @@ import { Http } from "@angular/http";
 @Injectable()
 export class ProductosService {
 
-  productos:any[] = [];
-  cargando_productos:boolean = true;
+  producto:any[] = [];
+  cargando:boolean = true;
 
   constructor(private http: Http) {
-    this.carga_productos();
+    this.cargar_productos();
    }
 
-  public carga_productos(){
-    if( this.productos.length === 0 ){
+  public cargar_productos(){
+    if( this.producto.length === 0 ){
 
       this.http.get('https://modacyc-45e03.firebaseio.com/productos_idx.json')
                 .subscribe( res => {
                   console.log(res.json());
-                  this.cargando_productos = false;
+                  this.cargando = false;
+                  this.producto = res.json();
                 })
 
     }
