@@ -16,7 +16,7 @@ export class ProductosService {
 
       this.http.get('https://modacyc-45e03.firebaseio.com/productos_idx.json')
                 .subscribe( res => {
-                  console.log(res.json());
+                  /* console.log(res.json()); */
                   this.cargando = false;
                   this.producto = res.json();
                 })
