@@ -1,18 +1,29 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 
+import { ProductosService } from "../../services/productos.service";
+
 @Component({
   selector: 'app-items',
   templateUrl: './items.component.html'
 })
 export class ItemsComponent {
 
-  constructor(private router: ActivatedRoute) {
+  producto: any = undefined;
 
-    router.params.subscribe( parametros=>{
+  constructor(private router: ActivatedRoute,
+    private _ps: ProductosService) {
 
-      console.log(parametros);
-      console.log(parametros['id']);
+    router.params.subscribe(parametros => {
+
+      /* console.log(parametros);
+      console.log(parametros['id']); */
+
+      _ps.cargar_producto(parametros['id'])
+        .subscribe(res => {
+          this.producto = res.json();
+          console.log(this.producto);
+        })
 
     })
 
