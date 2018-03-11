@@ -17,7 +17,7 @@
       </svg>
     </div>
 
-    <div *ngIf="_ps.productos_filtrado.length >0 && !cargando" class="ae-masonry ae-masonry-md-2 ae-masonry-xl-4">
+    <div *ngIf="_ps.productos_filtrado.length >0 && !_ps.cargando" class="ae-masonry ae-masonry-md-2 ae-masonry-xl-4">
 
       <a *ngFor="let producto of _ps.productos_filtrado" [routerLink]="['/items',producto.cod]" class="rk-item ae-masonry__item">
         <img src="assets/img/{{producto.url}}" alt="">

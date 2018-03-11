@@ -6,7 +6,7 @@ import { ProductosService } from "../../services/productos.service";
 })
 export class BodyComponent {
 
-  constructor (private _ps:ProductosService){}
+  constructor (public _ps:ProductosService){}
 
 
 }
